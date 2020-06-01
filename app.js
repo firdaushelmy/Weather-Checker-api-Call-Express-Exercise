@@ -6,7 +6,9 @@ require('dotenv').config();
 
 app.get('/', function (req, res) {
   const api_key = process.env.API_KEY;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${api_key}&units=metric`;
+  const query = 'London'
+  const unit = 'metric'
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${api_key}&units=${unit}`;
 
   https.get(url, function (response) {
     console.log(response.statusCode);
